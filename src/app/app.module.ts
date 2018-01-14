@@ -1,32 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeModule } from './home/home.module';
+import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SheetJsModule } from './sheet-js/sheet-js.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {NgxElectronModule} from 'ngx-electron';
-import {NgxFsModule} from 'ngx-fs';
+import { NgxElectronModule } from 'ngx-electron';
+import { NgxFsModule } from 'ngx-fs';
+
+import { BackupModule } from './backup/backup.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { InclusaoComponent } from './inclusao/inclusao.component';
-import { SheetJSComponent } from './sheet-js-component/sheet-js-component.component';
 
 import { DatabaseService } from './services/database.service';
-import { BackupComponent } from './backup/backup.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    InclusaoComponent,
-    SheetJSComponent,
-    BackupComponent
+    NavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     NgxElectronModule,
-    NgxFsModule
+    NgxFsModule,
+    HomeModule,
+    BackupModule,
+    AppRoutingModule,
+    SheetJsModule
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent]
